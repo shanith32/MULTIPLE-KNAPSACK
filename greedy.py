@@ -1,7 +1,7 @@
 #Heuristic algorithem to deal with the Knapsack problem
 
 data = [[4, 2, 0], [5, 2, 1], [7, 11, 2],
-        [7, 11, 2]]  # object set with the properties - [value, weight, id]
+        [7, 11, 3]]  # object set with the properties - [value, weight, id]
 
 container = []  #the container to contain the objects in
 capacity = 10  #weight capacity of the container

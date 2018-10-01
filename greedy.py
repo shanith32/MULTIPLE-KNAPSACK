@@ -1,10 +1,11 @@
 #Heuristic algorithem to deal with the Knapsack problem
 
-data = [[4, 2, 1], [5, 2, 2],
-        [7, 11, 3]]  # object set with the properties - [value, weight, id]
+data = [[4, 2, 0], [5, 2, 1], [7, 11, 2],
+        [7, 11, 2]]  # object set with the properties - [value, weight, id]
 
 container = []  #the container to contain the objects in
 capacity = 10  #weight capacity of the container
+solution = [0] * len(data)  #binary representation of the soultion
 
 ratios = []  #an array to store the ratios of each object
 count = 0  #a count to track the weights of objects before adding them to the container
@@ -22,13 +23,15 @@ print(decreasing)
 
 # For loop to add the objects to the container without exceeding the capacity of the container
 for i in range(len(decreasing)):
-    print(decreasing[i][1])
     for j in range(len(data)):
         if (decreasing[i][1] == data[j][2]):
             if (data[j][1] <= capacity):
                 if (count + data[j][1] <= capacity):
                     count = count + data[j][1]
                     container.append(data[j])
+                    index = data[j][2]
+                    solution[index] = 1
 
-print("Weights", count)
-print(" Here's the resulting container: ", container)
+print("\nWeights", count)
+print("Here's the resulting container: ", container)
+print("\nBinary string representation of the soultion: ", solution)

@@ -35,3 +35,17 @@ for i in range(len(decreasing)):
 print("\nWeights", count)
 print("Here's the resulting container: ", container)
 print("\nBinary string representation of the soultion: ", solution)
+
+CHROMO = [] * 3  # [[binary soultion], fitness, total weight]
+fitness = 0
+totalWeight = 0
+for j in range(len(solution)):
+    if (solution[j] == 1):
+        fitness += data[j][0]
+        totalWeight += data[j][1]
+CHROMO.append(solution)
+CHROMO.append(fitness)
+CHROMO.append(totalWeight)
+print("!!result!!:", CHROMO)
+print("Total value of the soultion:", CHROMO[1],
+      "Total weight of the soultion:", CHROMO[2])

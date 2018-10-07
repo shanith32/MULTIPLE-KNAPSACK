@@ -9,7 +9,7 @@ container = []  #the container to contain the objects in
 capacity = 10  #weight capacity of the container
 
 POP_SIZE = 5  #population size
-GEN_AMOUNT = 1000  #how many generations to run
+GEN_AMOUNT = 10  #how many generations to run
 
 # Initial Population
 INITIAL_POPULATION = []  #The inital population array
@@ -63,10 +63,14 @@ while (genCount != GEN_AMOUNT):
         print("random index to mutate:", randomIndex)
         mutation = offspringSolution[randomIndex]
         print("value in the random index: ", mutation)
-        if (mutation == 0):
-            offspringSolution[randomIndex] = 1
-        else:
-            offspringSolution[randomIndex] = 0
+        sortedPop = sorted(POPULATION_ONE, key=lambda x: x[1], reverse=True)
+        # Testing 50% chance of mutation to happen
+        testing = random.randint(0, 1)
+        if (testing == 1):
+            if (mutation == 0):
+                offspringSolution[randomIndex] = 1
+            else:
+                offspringSolution[randomIndex] = 0
         print("offspring sol after mutation:", offspringSolution)
         # create offspring Chromosome
         CHROMO = [] * 3  # [[binary soultion], fitness, total weight]
